@@ -47,13 +47,6 @@ extension View {
     }
 }
 
-struct LargeTitle: ViewModifier{
-    func body(content: Content) -> some View {
-        content
-            .font(.largeTitle)
-            .foregroundColor(.blue)
-    }
-}
 
 struct Watermark: ViewModifier {
     var text: String
@@ -97,6 +90,20 @@ struct GridStack<Content: View>: View {
                 }
             }
         }
+    }
+}
+//chalange 3
+struct LargeTitle: ViewModifier{
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .foregroundColor(.blue)
+    }
+}
+
+extension View {
+    func largeTitled(with text: String) -> some View{
+        self.modifier(LargeTitle(t))
     }
 }
 
