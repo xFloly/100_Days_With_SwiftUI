@@ -1,9 +1,3 @@
-//
-//  ContentView.swift
-//  WordScramble
-//
-//  Created by Paul Hudson on 15/10/2023.
-//
 
 import SwiftUI
 
@@ -62,16 +56,27 @@ struct ContentView: View {
             wordError(title: "Word used already", message: "Be more original!")
             return
         }
-
-        guard isPossible(word: answer) else {
-            wordError(title: "Word not possible", message: "You can't spell that word from '\(rootWord)'!")
+        
+        guard isOriginalWord(word: answer) else {
+            wordError(title: "Original word", message: "You must not put original word")
             return
         }
-
+        
         guard isReal(word: answer) else {
             wordError(title: "Word not recognized", message: "You can't just make them up, you know!")
             return
         }
+        //challange 2
+        guard isTooShort(word: answer) else {
+            wordError(title: "Word too short", message: "You must not use any prepositions")
+            return
+        }
+        //error in course
+        guard isPossible(word: answer) else {
+            wordError(title: "Word not possible", message: "You can't spell that word from '\(rootWord)'!")
+            return
+        }
+    
 
         withAnimation {
             usedWords.insert(answer, at: 0)
@@ -93,6 +98,7 @@ struct ContentView: View {
     }
 
     func isOriginal(word: String) -> Bool {
+        
         !usedWords.contains(word)
     }
 
@@ -100,19 +106,32 @@ struct ContentView: View {
         var tempWord = rootWord
 
         for letter in word {
-            if (word.count < 4) || (tempWord == word){
-                return false
-            }
+
             if let pos = tempWord.firstIndex(of: letter) {
                 tempWord.remove(at: pos)
             } else {
                 return false
             }
         }
-        score+=1
+        //challange 3
+        score+=calculatePoints(answer: word)
         return true
     }
-
+    
+    func isTooShort(word: String) -> Bool {
+        if (word.count < 4){
+            return false
+        }
+        return true
+    }
+    
+    func isOriginalWord(word: String) -> Bool{
+        if (rootWord == word){
+            return false
+        }
+        return true
+    }
+    
     func isReal(word: String) -> Bool {
         let checker = UITextChecker()
         let range = NSRange(location: 0, length: word.utf16.count)
@@ -124,6 +143,12 @@ struct ContentView: View {
         errorTitle = title
         errorMessage = message
         showingError = true
+    }
+    
+    func calculatePoints(answer: String) -> Int{
+        var answLen = answer.count
+        var rootLen = rootWord.count
+        return 1 + rootLen/answLen
     }
 }
 
