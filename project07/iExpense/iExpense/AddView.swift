@@ -11,9 +11,10 @@ struct AddView: View {
         "USD",
         "EUR",
         "GBP",
-         "PLN"
+        "PLN"
     ]
-    @State private var curr="USD"
+    //Challange 1
+    @State private var curr=Locale.current.currency?.identifier ?? "USD"
 
     var expenses: Expenses
 

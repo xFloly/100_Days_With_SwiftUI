@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E79DF5CD2B52A0F7002695E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79DF5CC2B52A0F7002695E5 /* ContentView.swift */; };
 		E7A4ACFA2B51764E00F2C721 /* iExpenseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4ACF92B51764E00F2C721 /* iExpenseApp.swift */; };
 		E7A4ACFE2B51765100F2C721 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7A4ACFD2B51765100F2C721 /* Assets.xcassets */; };
 		E7A4AD012B51765100F2C721 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7A4AD002B51765100F2C721 /* Preview Assets.xcassets */; };
 		E7A4AD082B51766E00F2C721 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4AD072B51766E00F2C721 /* AddView.swift */; };
-		E7A4AD0A2B51767700F2C721 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4AD092B51767700F2C721 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E79DF5CC2B52A0F7002695E5 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E7A4ACF62B51764E00F2C721 /* iExpense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iExpense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7A4ACF92B51764E00F2C721 /* iExpenseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iExpenseApp.swift; sourceTree = "<group>"; };
 		E7A4ACFD2B51765100F2C721 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7A4AD002B51765100F2C721 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E7A4AD072B51766E00F2C721 /* AddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
-		E7A4AD092B51767700F2C721 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../../iExpensiveproject7/iExpensiveproject7/ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +55,7 @@
 			children = (
 				E7A4ACF92B51764E00F2C721 /* iExpenseApp.swift */,
 				E7A4AD072B51766E00F2C721 /* AddView.swift */,
-				E7A4AD092B51767700F2C721 /* ContentView.swift */,
+				E79DF5CC2B52A0F7002695E5 /* ContentView.swift */,
 				E7A4ACFD2B51765100F2C721 /* Assets.xcassets */,
 				E7A4ACFF2B51765100F2C721 /* Preview Content */,
 			);
@@ -141,7 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7A4ACFA2B51764E00F2C721 /* iExpenseApp.swift in Sources */,
-				E7A4AD0A2B51767700F2C721 /* ContentView.swift in Sources */,
+				E79DF5CD2B52A0F7002695E5 /* ContentView.swift in Sources */,
 				E7A4AD082B51766E00F2C721 /* AddView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
