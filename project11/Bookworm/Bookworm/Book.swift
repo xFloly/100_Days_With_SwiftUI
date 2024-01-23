@@ -1,9 +1,3 @@
-//
-//  Book.swift
-//  Bookworm
-//
-//  Created by Student1 on 09/01/2024.
-//
 
 import SwiftUI
 import SwiftData
@@ -23,6 +17,7 @@ class Book{
         self.genre = genre
         self.review = review
         self.rating = rating
+        //challenge 3
         self.date=Date.now
     }
     

@@ -32,6 +32,7 @@ struct AddBookView: View {
                 }
                 Section{
                     Button("Save"){
+                        //challenge 1
                         let newBook=Book(title: title == "" ? "unknown" : title , author: author == "" ? "unknown" : author, genre: genre, review: review, rating: rating)
                         modelContext.insert(newBook)
                         dismiss()

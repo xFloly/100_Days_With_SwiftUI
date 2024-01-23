@@ -1,7 +1,7 @@
 
 import SwiftUI
 import SwiftData
-
+//challange 1
 @Model
 class Expense{
     var name: String

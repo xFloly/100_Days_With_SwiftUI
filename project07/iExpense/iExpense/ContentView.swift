@@ -62,7 +62,6 @@ struct ContentView: View {
                                             Text(item.name)
                                                 .font(.headline).bold()
                                         }
-                                        Text(item.type)
                                     }
                                     
                                     Spacer()

@@ -26,17 +26,17 @@ struct ContentView: View {
     @State private var endTitle = "Game Ended"
     @State private var roundCount = 0
     
-    @State private var spinAnimationDegree = [0.0, 0.0, 0.0]
     @State private var fadeAnimationDegree = [0.25,0.25,0.25]
-    @State private var allowFade = false
-
-    var defaultOpacity : [Double]{
-        [0.25,0.25,0.25]
-    }
+    @State private var allowFading = false
     
-    var defaultSpin : [Double]{
-        [0.0, 0.0, 0.0]
-    }
+    @State private var scaleAnimationDegree = [0.25,0.25,0.25]
+    @State private var allowScaling = false
+    
+    @State private var spinAnimationDegree = [0.0, 0.0, 0.0]
+
+    let defaultOpacityDegree = [0.25,0.25,0.25]
+    let defaultScaleDegree = [0.25,0.25,0.25]
+    let defaultSpinDegree = [0.0, 0.0, 0.0]
     
     var body: some View {
         ZStack {
@@ -75,8 +75,8 @@ struct ContentView: View {
                                                         axis: (x: 0.0, y: 1.0, z: 0.0)
                                 
                                 )
-                                .opacity(allowFade ? fadeAnimationDegree[number] : 1.0)
-                                //.scaleEffect(spinAnimationDegree[number])
+                                .opacity(allowFading ? fadeAnimationDegree[number] : 1.0)
+                                .scaleEffect(allowScaling ? scaleAnimationDegree[number] : 1.0)
                         }
                     }
                 }
@@ -124,8 +124,10 @@ struct ContentView: View {
 
         //challange 2 - p6
         fadeAnimationDegree[number] = 1.0
+        scaleAnimationDegree[number] = 1.0
         withAnimation(.default){
-            allowFade = true
+            allowFading = true
+            allowScaling = true
         }
         
         if number == correctAnswer {
@@ -142,21 +144,25 @@ struct ContentView: View {
         roundCount += 1
         if roundCount == numberOfGames{
             endingGame = true
+            return
         }
         showingScore = true
     }
 
     func askQuestion() {
-        allowFade = false
-        spinAnimationDegree = defaultSpin
-        fadeAnimationDegree = defaultOpacity
+        allowFading = false
+        allowScaling = false
+        spinAnimationDegree = defaultSpinDegree
+        fadeAnimationDegree = defaultOpacityDegree
+        scaleAnimationDegree = defaultScaleDegree
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
     }
     
     func restart(){
-        spinAnimationDegree = defaultSpin
-        fadeAnimationDegree = defaultOpacity
+        spinAnimationDegree = defaultSpinDegree
+        fadeAnimationDegree = defaultOpacityDegree
+        scaleAnimationDegree = defaultScaleDegree
         showingScore = false
         roundCount = 0
         scoreCount = 0

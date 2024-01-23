@@ -29,7 +29,7 @@ struct ContentView: View {
                 Section{
                     Text("Actual score: \(score)").toolbar{
                         ToolbarItemGroup {
-                            Button("RESET"){
+                            Button("RESET", systemImage: "arrow.counterclockwise.circle"){
                                 startGame()
                                 usedWords=[]
                                 score=0
@@ -57,10 +57,7 @@ struct ContentView: View {
             return
         }
         
-        guard isOriginalWord(word: answer) else {
-            wordError(title: "Original word", message: "You must not put original word")
-            return
-        }
+
         
         guard isReal(word: answer) else {
             wordError(title: "Word not recognized", message: "You can't just make them up, you know!")
@@ -68,9 +65,15 @@ struct ContentView: View {
         }
         //challange 2
         guard isTooShort(word: answer) else {
-            wordError(title: "Word too short", message: "You must not use any prepositions")
+            wordError(title: "Word too short", message: "The word has to be at least 4 letters")
             return
         }
+        
+        guard isOriginalWord(word: answer) else {
+            wordError(title: "Original word", message: "You must not put original word")
+            return
+        }
+        
         //error in course
         guard isPossible(word: answer) else {
             wordError(title: "Word not possible", message: "You can't spell that word from '\(rootWord)'!")
@@ -146,8 +149,8 @@ struct ContentView: View {
     }
     
     func calculatePoints(answer: String) -> Int{
-        var answLen = answer.count
-        var rootLen = rootWord.count
+        let answLen = answer.count
+        let rootLen = rootWord.count
         return 1 + rootLen/answLen
     }
 }

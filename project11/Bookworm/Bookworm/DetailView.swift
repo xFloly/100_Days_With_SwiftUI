@@ -1,9 +1,3 @@
-//
-//  DetailView.swift
-//  Bookworm
-//
-//  Created by Student1 on 09/01/2024.
-//
 
 import SwiftUI
 import SwiftData
@@ -35,6 +29,8 @@ struct DetailView: View {
                 .padding()
             RatingView(rating: .constant(book.rating))
                 .font(.largeTitle)
+                .padding()
+            //challenge 3
             Text(book.date.formatted(.dateTime.day().month().year()))
         }
         .navigationTitle(book.title)

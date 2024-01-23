@@ -1,5 +1,4 @@
 
-
 import SwiftUI
 import SwiftData
 
@@ -25,6 +24,7 @@ struct ContentView: View {
                             VStack(alignment: .leading){
                                 Text(book.title)
                                     .font(.headline)
+                                //challenge 2
                                     .foregroundStyle((book.rating==1) ? .red : .black)
                                 
                                 Text(book.author)

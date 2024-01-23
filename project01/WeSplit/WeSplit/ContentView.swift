@@ -41,6 +41,7 @@ struct ContentView: View {
                     }
                 }
                 Section("How much do you want to tip?") {
+                    //challenge 3
                     Picker("Tip percentage", selection: $tipPercentage) {
                         ForEach(0..<101) {
                             Text($0, format: .percent)
@@ -49,10 +50,13 @@ struct ContentView: View {
                     }
                     .pickerStyle(.wheel)
                 }
+                //challenge 2
                 Section("Total price"){
                     Text(totalPrice, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                    //challenge 1 - p3
                         .foregroundColor(tipPercentage>0 ? Color.black : Color.red)
                 }
+                //chellange 1
                 Section("Per person") {
                     Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                 }

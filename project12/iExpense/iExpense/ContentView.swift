@@ -23,6 +23,7 @@ struct ContentView: View {
                         Button("Add Expense", systemImage: "plus") {
                             showingAddExpense = true
                         }
+                        //challange 2
                         Menu("Sort", systemImage: "arrow.up.arrow.down"){
                             Picker("Sort", selection: $sortOrder){
                                 Text("Sort by name")
@@ -37,6 +38,7 @@ struct ContentView: View {
                     .sheet(isPresented: $showingAddExpense) {
                         AddView()
                     }
+                //challange 3
                 HStack{
                     Button(displayType == 0 ? "Show Personal" : "Show Business"){
                         displayType = displayType == 0 ? 1 : 0

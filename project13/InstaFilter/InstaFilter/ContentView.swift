@@ -8,9 +8,11 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var processedImage: Image?
+    
     @State private var filterIntensity = 0.5
     @State private var filterRadius = 0.4
     @State private var filterScale=0.5
+    
     @State private var selectedItem: PhotosPickerItem?
     @State private var showingFilters = false
     
@@ -42,11 +44,11 @@ struct ContentView: View {
                 .onChange(of: selectedItem, loadImage)
                 
                 Spacer()
-                
+                //challange 1
                 if let processedImage{
                     
                     let inputKeys = currentFilter.inputKeys
-                    
+                    //challange 2
                     if inputKeys.contains(kCIInputIntensityKey){
                         HStack{
                             Text("Intensity")
@@ -54,7 +56,6 @@ struct ContentView: View {
                                 .onChange(of: filterIntensity, applyProcessing)
                         }
                     }
-                    
                     if inputKeys.contains(kCIInputRadiusKey){
                         HStack{
                             Text("Radius")
@@ -62,7 +63,6 @@ struct ContentView: View {
                                 .onChange(of: filterRadius, applyProcessing)
                         }
                     }
-                    
                     if inputKeys.contains(kCIInputScaleKey){
                         HStack{
                             Text("Scale")
@@ -108,8 +108,12 @@ struct ContentView: View {
                 Button("Bloom"){
                     setFilter(CIFilter.bloom())
                 }
-                Button("ColorMap"){
-                    setFilter(CIFilter.colorClamp())
+                //challange 3
+                Button("gaborGradients"){
+                    setFilter(CIFilter.gaborGradients())
+                }
+                Button("Gloom"){
+                    setFilter(CIFilter.gloom())
                 }
                 Button("Invert Colors"){
                     setFilter(CIFilter.colorInvert())
@@ -139,17 +143,17 @@ struct ContentView: View {
     func applyProcessing(){
 
         let inputKeys = currentFilter.inputKeys
+        
         if inputKeys.contains(kCIInputIntensityKey){
             currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey)
-
         }
         if inputKeys.contains(kCIInputRadiusKey){
             currentFilter.setValue(filterRadius*10, forKey: kCIInputRadiusKey)
-
         }
         if inputKeys.contains(kCIInputScaleKey){
             currentFilter.setValue(filterScale*10, forKey: kCIInputScaleKey)
         }
+        
         guard let outputImage=currentFilter.outputImage else {return}
         guard let cgImage = context.createCGImage(outputImage, from: outputImage.extent) else {return}
                 

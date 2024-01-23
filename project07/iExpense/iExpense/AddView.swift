@@ -7,12 +7,14 @@ struct AddView: View {
     @State private var name = ""
     @State private var type = "Personal"
     @State private var amount = 0.0
+    
     let currencies = [
         "USD",
         "EUR",
         "GBP",
         "PLN"
     ]
+    
     //Challange 1
     @State private var curr=Locale.current.currency?.identifier ?? "USD"
 

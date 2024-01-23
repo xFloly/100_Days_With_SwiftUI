@@ -1,12 +1,8 @@
-//
-//  ContentView.swift
-//  GuessTheFlag
-//
-//  Created by Paul Hudson on 11/10/2023.
-//
 
 import SwiftUI
 
+
+//challenge 2 - p3
 struct FlagImage : View {
     var name : String
     
@@ -84,11 +80,13 @@ struct ContentView: View {
             }
             .padding()
         }
+        //challenge 3
         .alert(endTitle, isPresented: $endingGame){
             Button("Restert", action: restart)
         } message: {
             Text("Your final score is \(scoreCount)/\(numberOfGames)")
         }
+        //challenge 3
         .alert(scoreTitle, isPresented: $showingScore) {
             Button("Continue", action: askQuestion)
         } message: {
@@ -98,14 +96,18 @@ struct ContentView: View {
 
     func flagTapped(_ number: Int) {
         if number == correctAnswer {
+            //challenge 1
             scoreTitle = "Correct"
             scoreCount += 1
         } else {
+            //challenge 2
             scoreTitle = "Wrong, this is the flag of \(countries[number])"
         }
+        //challenge 3
         roundCount += 1
         if roundCount == numberOfGames{
             endingGame = true
+            return
         }
         showingScore = true
     }
