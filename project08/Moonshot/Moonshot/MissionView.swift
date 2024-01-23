@@ -16,7 +16,7 @@ struct MissionView: View {
                         width, axis in
                         width * 0.6
                     }
-                
+                //challange 1
                 Text(mission.formattedLaunchDate)
                     .font(.title3)
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)

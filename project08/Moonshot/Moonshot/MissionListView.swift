@@ -1,9 +1,3 @@
-//
-//  MissionListView.swift
-//  Moonshot
-//
-//  Created by Student1 on 15/01/2024.
-//
 
 import SwiftUI
 

@@ -15,7 +15,7 @@ struct ContentView: View {
             ScrollView{
                 Group {
                     if showingGrid {
-                        GridView(astronauts: astronauts, missions: missions)
+                         GridView(astronauts: astronauts, missions: missions)
                     } else {
                         ListView(astronauts: astronauts, missions: missions)
                     }
@@ -23,12 +23,11 @@ struct ContentView: View {
                 .navigationTitle("Moonshot")
                 
             }
-            //.listStyle(.plain)
-            //.listRowBackground(Color.darkBackground)
             .background(.darkBackground)
             .preferredColorScheme(.dark)
+            //challange 3
             .toolbar{
-                Button(showingGrid ? "ListView" : "GridView" ){
+                Button((showingGrid ? "ListView" : "GridView"), systemImage: showingGrid ? "list.bullet" : "square.grid.2x2.fill" ){
                     showingGrid.toggle()
                 }
             }
